@@ -498,8 +498,6 @@
             const emailRegex =
                 /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-
-            /* Form Submit Controller */
             form.addEventListener("submit", (e) => {
 
                 e.preventDefault();
@@ -507,8 +505,6 @@
                 const emailValue =
                     emailInput.value.trim();
 
-
-                /* Validate Email */
                 if (!emailRegex.test(emailValue)) {
 
                     emailGroup.classList.add("error");
@@ -519,21 +515,15 @@
                 }
 
 
-                /* Remove Error */
                 emailGroup.classList.remove("error");
-
-
-                /* Hide Form */
+               
                 form.style.display = "none";
 
-
-                /* Show Success */
                 successBanner.style.display = "block";
 
             });
 
 
-            /* Remove Error While Typing */
             emailInput.addEventListener("input", () => {
 
                 if (
