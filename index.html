@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Chresoph Farms</title>
+    <meta name="description" content="Sign up today to get exclusive updates.">
+    <link rel="canonical" href="https://example.com">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --error-color: #dc2626;
+            --success-bg: #f0fdf4;
+            --success-text: #166534;
+            --success-border: #bbf7d0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .landing-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .content-side h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+        }
+        .content-side p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Right Column Form Wrapper */
+        .form-side {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        /* Visual Error States */
+        .form-group.error input {
+            border-color: var(--error-color);
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.8125rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.85rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .success-banner {
+            display: none;
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            border: 1px solid var(--success-border);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .success-banner h3 {
+            margin-bottom: 0.25rem;
+            font-size: 1.125rem;
+        }
+
+        /* Media Query: Breakpoint Collapse to 1 Column */
+        @media (max-width: 768px) {
+            .landing-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                padding: 2.5rem 1.2rem;
+                text-align: center;
+            }
+            .content-side h1 {
+                font-size: 2.25rem;
+            }
+            .content-side p {
+                font-size: 1.125rem;
+            }
+            .form-side {
+                padding: 1.75rem;
+            }
+            .form-group label {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="landing-container">
+        <!-- Left Column: Copy -->
+        <section class="content-side">
+            <h1>Scale your ideas into reality.</h1>
+            <p>Get access to a curated ecosystem engineered to accelerate your personal and collaborative productivity frameworks.</p>
+        </section>
+
+        <!-- Right Column: Interactive Form -->
+        <section class="form-side">
+            <form id="signupForm" novalidate>
+                <div class="form-group" id="emailGroup">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="you@example.com" 
+                        autocomplete="email"
+                    >
+                    <div class="error-message" id="errorText">Please enter a valid email address.</div>
+                </div>
+                <button type="submit" class="submit-btn">Get Early Access</button>
+            </form>
+
+            <!-- Inline Success Node -->
+            <div class="success-banner" id="successBanner">
+                <h3>Welcome aboard</h3>
+                <p>Check your inbox soon for your exclusive welcome from Chresoph farms.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('signupForm');
+            const emailInput = document.getElementById('email');
+            const emailGroup = document.getElementById('emailGroup');
+            const successBanner = document.getElementById('successBanner');
+
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            // Form Submit Controller
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Restricts default browser page-reload behavior
+                
+                const emailValue = emailInput.value.trim();
+
+                // Validate execution check
+                if (!emailRegex.test(emailValue)) {
+                    emailGroup.classList.add('error');
+                    emailInput.focus();
+                } else {
+                    emailGroup.classList.remove('error');
+                    
+                    // State mutations without reloading
+                    form.style.display = 'none';
+                    successBanner.style.display = 'block';
+                }
+            });
+
+            // Instant error remediation clearance on user interaction
+            emailInput.addEventListener('input', () => {
+                if (emailGroup.classList.contains('error')) {
+                    emailGroup.classList.remove('error');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
